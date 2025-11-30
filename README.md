@@ -110,14 +110,3 @@ A frontend developer & UI designer who enjoys merging creativity, AI, and intera
 
 MindEscape is the answer.  
 A fusion of creativity, generative intelligence, storytelling, and interactive gameplay.
-
----
-
-If you want, I can also add:
-- A preview image/banner  
-- A features table  
-- A technology stack section  
-- A contribution guide  
-- A license section  
-
-Just say **add more** and I’ll enhance it!  
