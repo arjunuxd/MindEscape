@@ -9,6 +9,8 @@ app.use(express.json({ limit: "200kb" }));
 
 const PORT = process.env.PORT || 5000;
 
+app.get("/health", (req, res) => res.json({ status: "ok" }));
+
 app.post("/room", async (req, res) => {
   try {
     const stage = req.body?.storyStage || 1;
