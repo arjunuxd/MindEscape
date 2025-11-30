@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mind Escape</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@3.8.1/tsparticles.bundle.min.js"></script>
+</head>
+<body>
+  <div id="particles-js"></div>
+
+  <!-- Challenge input screen -->
+  <div id="challenge-screen" class="overlay active">
+    <div class="overlay-content">
+      <h1>Enter your challenge</h1>
+      <input type="text" id="challenge-input" placeholder="e.g., Solve the mystery">
+      <button id="start-btn">Start</button>
+    </div>
+  </div>
+
+  <!-- Loader overlay -->
+  <div id="loader" class="overlay">
+    <div class="overlay-content">
+      <div class="loader-animation"></div>
+      <p>Loading...</p>
+    </div>
+  </div>
+
+  <!-- Game container -->
+  <div class="game-container">
+    <div class="card">
+      <h2>Mind Escape</h2>
+
+      <!-- HUD -->
+      <div class="hud">
+        <div class="hud-row">
+          <span>Room: <span id="room-num">1</span> / 10</span>
+          <span>Score: <span id="score">0</span></span>
+        </div>
+        <div class="hud-row">
+          <span>Difficulty: <span id="difficulty">Easy</span></span>
+          <span>Restarts: <span id="restart-count">0</span></span>
+        </div>
+        <div class="progress-bar"><div id="progress-fill"></div></div>
+      </div>
+
+      <!-- Room content -->
+      <div id="room"></div>
+      <div id="message"></div>
+
+      <!-- Time/Analysis -->
+      <div class="analysis">
+        <p>Total Time: <span id="total-time">0s</span></p>
+        <p>Average Response: <span id="avg-response">0s</span></p>
+      </div>
+    </div>
+  </div>
+
+  <audio id="correct-sound" src="sounds/correct.mp3"></audio>
+  <audio id="wrong-sound" src="sounds/wrong.mp3"></audio>
+
+  <script src="script.js"></script>
+</body>
+</html>
