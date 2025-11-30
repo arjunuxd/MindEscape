@@ -1,4 +1,4 @@
-const backend = "http://localhost:5000";
+const backend = "https://mindescape-b42m.onrender.com";
 
 let currentRoom = 1;
 const totalRooms = 10;
