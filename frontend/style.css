@@ -1,85 +1,95 @@
-/* Body & full-screen */
+/* -------- BASIC LAYOUT -------- */
 body, html {
-  margin: 0; 
+  margin: 0;
   padding: 0;
   font-family: 'Poppins', sans-serif;
-  height: 100%; 
-  display: flex; 
-  justify-content: center; 
+  height: 100%;
+  display: flex;
+  justify-content: center;
   align-items: center;
-  background: #011627; 
+  background: #011627;
   color: #ffffff;
-  overflow: hidden; /* Prevent scrolling */
+  overflow: hidden;
 }
 
+/* Background Particles */
 #particles-js {
-  position: fixed; 
-  width: 100%; 
-  height: 100%; 
+  position: fixed;
+  width: 100%;
+  height: 100%;
   z-index: 0;
 }
 
-/* Overlay screens */
+/* -------- OVERLAYS -------- */
 .overlay {
-  position: fixed; 
-  top: 0; 
-  left: 0; 
-  width: 100%; 
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
   height: 100%;
   background: rgba(1,22,39,0.95);
-  display: flex; 
-  justify-content: center; 
+  display: flex;
+  justify-content: center;
   align-items: center;
-  z-index: 10; 
-  opacity: 0; 
+  z-index: 10;
+  opacity: 0;
   pointer-events: none;
   transition: all 0.4s ease;
 }
-.overlay.active { 
-  opacity: 1; 
-  pointer-events: all; 
+.overlay.active {
+  opacity: 1;
+  pointer-events: all;
 }
 
 .overlay-content {
-  display: flex; 
-  flex-direction: column; 
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  padding: 35px 25px; 
-  background: #ffbf38; 
+  padding: 35px 25px;
+  background: #ffbf38;
   border-radius: 24px;
-  text-align: center; 
-  width: 90%; 
+  text-align: center;
+  width: 90%;
   max-width: 400px;
   color: #011627;
 }
 
-.overlay h1 { font-size: 1.6rem; margin-bottom: 20px; }
+.overlay h1 {
+  font-size: 1.6rem;
+  margin-bottom: 20px;
+}
+
 .overlay input {
-  padding: 12px 14px; 
-  border-radius: 12px; 
+  padding: 12px 14px;
+  border-radius: 12px;
   border: none;
-  width: 100%; 
-  font-size: 1rem; 
-  margin-bottom: 18px; 
+  width: 100%;
+  font-size: 1rem;
+  margin-bottom: 18px;
   outline: none;
 }
-.overlay button {
-  padding: 12px 20px; 
-  border-radius: 12px; 
-  border: none;
-  background: #011627; 
-  color: #ffbf38; 
-  font-weight: 600;
-  cursor: pointer; 
-  width: 100%; 
-  font-size: 1rem;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
-  transition: all 0.3s ease;
-}
-.overlay button:hover { transform: translateY(-2px) scale(1.03); }
-.overlay button:active { transform: translateY(0) scale(0.98); }
 
-/* Loader animation: bouncing dots */
+.overlay button {
+  padding: 12px 20px;
+  border-radius: 12px;
+  border: none;
+  background: #011627;
+  color: #ffbf38;
+  font-weight: 600;
+  cursor: pointer;
+  width: 100%;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+}
+.overlay button:hover {
+  transform: translateY(-2px) scale(1.03);
+}
+.overlay button:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* -------- LOADING ANIMATION -------- */
 .loader-animation {
   display: flex;
   justify-content: center;
@@ -103,113 +113,187 @@ body, html {
   100% { transform: translateY(0); opacity: 0.6; }
 }
 
-/* Game container */
-.game-container { 
-  position: relative; 
-  z-index: 5; 
-  width: 100%; 
-  height: 100vh; /* full viewport height */
-  display: flex; 
-  justify-content: center; 
-  align-items: center; 
-  padding: 10px;
-}
-
-/* Card: fit screen */
-.card {
-  width: 90vw;          /* responsive width */
-  max-width: 600px;     
-  height: 85vh;         /* fit viewport height */
-  padding: 20px 25px;
-  background: rgba(1,22,39,0.85); 
-  border-radius: 24px;
-  box-shadow: 0 16px 48px rgba(0,0,0,0.4);
-  color: #ffffff; 
-  display: flex; 
-  flex-direction: column; 
-  justify-content: space-between; /* distribute sections */
-  gap: 15px;
+/* -------- GAME CONTAINER -------- */
+.game-container {
+  position: relative;
+  z-index: 5;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
   box-sizing: border-box;
-  overflow: hidden; /* prevent inner scroll */
 }
 
-/* HUD */
-.hud { 
-  display: flex; 
-  flex-direction: column; 
-  gap: 10px; 
-  font-weight: 500; 
+/* -------- IMPROVED CARD UI -------- */
+.card {
+  width: 100%;
+  max-width: 520px;
+  min-height: 520px;
+  background: rgba(1, 22, 39, 0.7);
+  backdrop-filter: blur(12px);
+  border-radius: 22px;
+  padding: 25px 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 18px;
+  box-sizing: border-box;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.4);
 }
-.hud-row { 
-  display: flex; 
-  justify-content: space-between; 
-  flex-wrap: wrap; 
+
+.card h2 {
+  text-align: center;
+  margin: 0;
+  font-size: 1.6rem;
+  letter-spacing: 1px;
+}
+
+/* -------- HUD -------- */
+.hud {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.hud-row {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
   gap: 6px;
 }
-.progress-bar { 
-  width: 100%; 
-  height: 12px; 
-  background: #ffbf38; 
-  border-radius: 8px; 
-  overflow: hidden; 
-}
-#progress-fill { 
-  width: 0%; 
-  height: 100%; 
-  background: #ffffff; 
-  border-radius: 8px; 
-  transition: width 0.5s ease; 
+
+.progress-bar {
+  width: 100%;
+  height: 12px;
+  background: #ffbf38;
+  border-radius: 8px;
+  overflow: hidden;
 }
 
-/* Room content */
+#progress-fill {
+  width: 0%;
+  height: 100%;
+  background: #ffffff;
+  border-radius: 8px;
+  transition: width 0.5s ease;
+}
+
+/* -------- ROOM CONTENT -------- */
 #room {
-  flex-grow: 1;  /* take available space */
-  overflow-y: auto; /* scroll inside if needed */
-  opacity: 0; 
-  transition: opacity 0.3s ease; 
-  padding-right: 5px; /* avoid scrollbar overlap */
+  flex-grow: 1;
+  overflow-y: auto;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  padding-right: 5px;
 }
-#room p { font-size: 1rem; line-height: 1.4; margin-bottom: 6px; }
-#room h3 { font-size: 1.1rem; margin-bottom: 10px; font-weight: 600; }
 
+#room p {
+  font-size: 1rem;
+  line-height: 1.4;
+  margin-bottom: 6px;
+}
+
+#room h3 {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+/* -------- OPTIONS -------- */
 .options {
-  display: flex; 
-  flex-direction: column; 
+  display: flex;
+  flex-direction: column;
   gap: 8px;
 }
+
 .options button {
   padding: 12px 14px;
-  border: none; 
+  border: none;
   border-radius: 12px;
-  background: #ffbf38; 
-  color: #011627; 
+  background: #ffbf38;
+  color: #011627;
   cursor: pointer;
-  width: 100%; 
-  font-weight: 500; 
+  width: 100%;
+  font-weight: 500;
   transition: all 0.3s ease;
 }
-.options button:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(0,0,0,0.2);}
-.options button.selected { background: #ffffff; color: #011627; box-shadow: 0 8px 20px rgba(255,255,255,0.4); }
+.options button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+}
+.options button.selected {
+  background: #ffffff;
+  color: #011627;
+  box-shadow: 0 8px 20px rgba(255,255,255,0.4);
+}
 
-#message { margin-top: 8px; font-weight: 500; font-size: 1rem; text-align: center; color: #ffbf38; }
+/* -------- MESSAGE -------- */
+#message {
+  margin-top: 8px;
+  font-weight: 500;
+  font-size: 1rem;
+  text-align: center;
+  color: #ffbf38;
+}
 
-/* Analysis */
-.analysis { font-size: 0.85rem; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 6px; }
+/* -------- ANALYSIS -------- */
+.analysis {
+  font-size: 0.85rem;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 6px;
+}
 
-/* Mobile adjustments */
-@media(max-width: 700px){
+/* -------- MOBILE OPTIMIZATION -------- */
+@media(max-width: 700px) {
   .card {
-    width: 95vw;
-    height: 80vh;
-    padding: 15px;
+    padding: 20px;
+    max-width: 92%;
+    min-height: 78vh;
+    border-radius: 18px;
   }
+
+  .card h2 {
+    font-size: 1.4rem;
+  }
+
   #room h3 { font-size: 1rem; }
   #room p { font-size: 0.9rem; }
-  .options button { font-size: 0.85rem; padding: 10px; }
-  .hud-row { flex-direction: column; gap: 4px; }
-  .analysis { font-size: 0.8rem; gap: 4px; }
-  .overlay-content { padding: 25px 20px; }
-  .overlay h1 { font-size: 1.4rem; margin-bottom: 16px; }
-  .overlay button { font-size: 0.95rem; padding: 10px; }
-  .loader-animation div { width: 10px; height: 10px; }
+
+  .options button {
+    font-size: 0.85rem;
+    padding: 10px;
+  }
+
+  .hud-row {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .analysis {
+    font-size: 0.8rem;
+    gap: 4px;
+  }
+
+  .overlay-content {
+    padding: 25px 20px;
+  }
+
+  .overlay h1 {
+    font-size: 1.4rem;
+    margin-bottom: 16px;
+  }
+
+  .overlay button {
+    font-size: 0.95rem;
+    padding: 10px;
+  }
+
+  .loader-animation div {
+    width: 10px;
+    height: 10px;
+  }
 }
