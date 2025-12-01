@@ -59,4 +59,12 @@ app.get("/motivation/correct", async (req, res) => {
   }
 });
 
+// KEEP ALIVE SELF-PING
+setInterval(() => {
+  fetch("https://mindescape-b42m.onrender.com/health")
+    .then(() => console.log("Self-ping OK"))
+    .catch(err => console.error("Self-ping failed:", err));
+}, 1000 * 60 * 4);
+
+
 app.listen(PORT, () => console.log(`Backend running on http://localhost:${PORT}`));

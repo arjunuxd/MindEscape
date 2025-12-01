@@ -241,3 +241,7 @@ function restart(){
   challengeScreen.classList.add("active");
   updateHUD();
 }
+
+setInterval(() => {
+  fetch("https://mindescape-b42m.onrender.com/health").catch(() => {});
+}, 1000 * 60 * 5);
